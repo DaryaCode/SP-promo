@@ -6,7 +6,7 @@
     <title>SubPar - Find Golf Games Near You</title>
     <meta
       name="description"
-      content="SubPar helps golfers find local rounds, invite trusted players, coordinate before tee time, and connect with coaches and caddies."
+      content="SubPar helps golfers find open golf rounds nearby, invite trusted players, and coordinate around tee times they already have."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -1194,8 +1194,8 @@
 
       .cta-content {
         display: grid;
-        grid-template-columns: minmax(0, 780px) auto;
-        gap: clamp(28px, 6vw, 108px);
+        grid-template-columns: minmax(0, 660px) minmax(320px, 400px);
+        gap: clamp(30px, 5vw, 84px);
         align-items: center;
         justify-content: center;
         text-align: left;
@@ -1214,19 +1214,65 @@
         line-height: 1.56;
       }
 
-      .cta-actions {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        flex-wrap: wrap;
+      .waitlist-form {
+        display: grid;
         gap: 10px;
-        justify-content: flex-start;
+        width: 100%;
+        padding: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 12px 34px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(12px);
       }
 
-      .cta-actions .button {
-        min-height: 56px;
-        padding-right: 24px;
-        padding-left: 24px;
+      .field {
+        display: grid;
+        gap: 6px;
+      }
+
+      .field label {
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .field input {
+        width: 100%;
+        min-height: 44px;
+        padding: 0 12px;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 8px;
+        color: var(--ink);
+        font-size: 15px;
+        font-weight: 500;
+        background: rgba(255, 255, 255, 0.94);
+        outline: none;
+      }
+
+      .field input::placeholder {
+        color: #778079;
+      }
+
+      .field input:focus {
+        border-color: rgba(255, 255, 255, 0.72);
+        box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.18);
+      }
+
+      .waitlist-form .button {
+        min-height: 48px;
+        padding-right: 20px;
+        padding-left: 20px;
+        font-size: 15px;
+      }
+
+      .waitlist-form .form-status {
+        min-height: 16px;
+        margin: 0;
+        color: rgba(255, 255, 255, 0.76);
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 1.4;
       }
 
       footer {
@@ -1324,9 +1370,8 @@
           margin-left: auto;
         }
 
-        .cta-actions {
-          align-items: center;
-          justify-content: center;
+        .waitlist-form {
+          max-width: 520px;
         }
 
       }
@@ -1503,7 +1548,7 @@
           <div class="hero-copy-wrap">
             <p class="eyebrow">
               <i data-lucide="rocket" aria-hidden="true"></i>
-              Currently in development
+              Early access opening soon
             </p>
             <h1 id="hero-title">Find the right round, meet the right players</h1>
             <p class="hero-copy">
@@ -1555,8 +1600,8 @@
             </span>
             <h2>Everything around the tee time, without the back-and-forth</h2>
             <p class="section-copy">
-              SubPar brings game discovery, invitations, messaging, reminders,
-              ratings, and golf profiles into one simple mobile experience.
+              SubPar keeps the planning around a round clear, trusted, and easy
+              to manage before anyone arrives at the first tee.
             </p>
           </div>
           <div class="features">
@@ -1722,6 +1767,29 @@
           </div>
           <div class="faq-grid">
             <article class="faq">
+              <h3>Does SubPar book tee times?</h3>
+              <p>
+                No. Hosts book tee times with the course first, then use SubPar
+                to create the game, open spots, approve players, and coordinate
+                the round.
+              </p>
+            </article>
+            <article class="faq">
+              <h3>Can I create private games?</h3>
+              <p>
+                Yes. SubPar is designed for both public games with open spots
+                and private rounds shared with invited players.
+              </p>
+            </article>
+            <article class="faq">
+              <h3>How are players verified?</h3>
+              <p>
+                SubPar is built around profiles, completed rounds, ratings, and
+                reviews so hosts can understand who is asking to join before
+                approving a spot.
+              </p>
+            </article>
+            <article class="faq">
               <h3>How does SubPar work?</h3>
               <p>
                 The host books the tee time with the course first, then adds
@@ -1774,17 +1842,39 @@
           <div>
             <h2>Be first to know when SubPar launches</h2>
             <p>
-              Join the waitlist for launch updates, early access news, and
-              future release details for golfers, coaches, caddies, course
-              partners, and early supporters.
+              Join the waitlist for launch updates, beta access, and
+              availability in your area.
             </p>
           </div>
-          <div class="cta-actions">
-            <a class="button primary" href="mailto:hello@subpar.app">
+          <form class="waitlist-form" id="waitlist-form">
+            <div class="field">
+              <label for="waitlist-email">Email</label>
+              <input
+                id="waitlist-email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                placeholder="you@example.com"
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="waitlist-location">City or ZIP</label>
+              <input
+                id="waitlist-location"
+                name="location"
+                type="text"
+                autocomplete="postal-code"
+                placeholder="Scottsdale, AZ"
+                required
+              />
+            </div>
+            <button class="button primary" type="submit">
               <i data-lucide="mail" aria-hidden="true"></i>
               Join waitlist
-            </a>
-          </div>
+            </button>
+            <p class="form-status" id="waitlist-status" aria-live="polite"></p>
+          </form>
         </div>
       </section>
     </main>
@@ -1804,6 +1894,33 @@
 
     <script>
       lucide.createIcons({ attrs: { width: 20, height: 20, strokeWidth: 2.4 } });
+
+      const waitlistForm = document.querySelector("#waitlist-form");
+      const waitlistStatus = document.querySelector("#waitlist-status");
+
+      if (waitlistForm && waitlistStatus) {
+        waitlistForm.addEventListener("submit", (event) => {
+          event.preventDefault();
+          const formData = new FormData(waitlistForm);
+          const entry = {
+            email: formData.get("email"),
+            location: formData.get("location"),
+            submittedAt: new Date().toISOString(),
+          };
+          const savedEntries = JSON.parse(
+            localStorage.getItem("subparWaitlistEntries") || "[]",
+          );
+
+          savedEntries.push(entry);
+          localStorage.setItem(
+            "subparWaitlistEntries",
+            JSON.stringify(savedEntries),
+          );
+          waitlistStatus.textContent =
+            "Thanks. We'll share beta access updates for your area.";
+          waitlistForm.reset();
+        });
+      }
     </script>
   </body>
 </html>
