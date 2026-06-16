@@ -175,13 +175,18 @@
       .hero-grid {
         display: grid;
         grid-template-columns: minmax(600px, 0.86fr) minmax(420px, 0.42fr);
-        gap: clamp(30px, 3.6vw, 56px);
+        grid-template-areas:
+          "copy phone"
+          "metrics phone";
+        column-gap: clamp(30px, 3.6vw, 56px);
+        row-gap: 0;
         align-items: center;
         width: min(var(--page-max), 100%);
         margin: 0 auto;
       }
 
       .hero-copy-wrap {
+        grid-area: copy;
         min-width: 0;
         width: 100%;
         max-width: 900px;
@@ -232,6 +237,7 @@
       }
 
       .hero-metrics {
+        grid-area: metrics;
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 1px;
@@ -265,6 +271,7 @@
       }
 
       .hero-app-shot {
+        grid-area: phone;
         position: relative;
         justify-self: center;
         align-self: center;
@@ -1334,6 +1341,10 @@
 
         .hero-grid {
           gap: 28px;
+          grid-template-areas:
+            "copy"
+            "phone"
+            "metrics";
         }
 
         .hero-phone,
@@ -1345,6 +1356,10 @@
         .hero-app-shot {
           width: min(320px, 100%);
           height: min(560px, 58svh);
+        }
+
+        .hero-metrics {
+          margin-top: 0;
         }
       }
 
@@ -1471,7 +1486,21 @@
         }
 
         .hero-app-shot {
-          display: none;
+          display: block;
+          justify-self: start;
+          width: min(250px, 72vw);
+          height: min(430px, 48svh);
+          border-radius: 30px;
+          padding: 8px;
+        }
+
+        .hero-app-shot::after {
+          inset: 8px;
+          border-radius: 22px;
+        }
+
+        .hero-app-shot img {
+          border-radius: 22px;
         }
 
         .flow-showcase {
@@ -1520,6 +1549,34 @@
           justify-content: flex-start;
         }
       }
+
+      @media (min-width: 350px) and (max-width: 720px) {
+        .hero-actions {
+          flex-wrap: nowrap;
+          gap: 10px;
+        }
+
+        .hero-actions .button {
+          min-height: 48px;
+          padding: 0 14px;
+          gap: 8px;
+          font-size: 15px;
+        }
+      }
+
+      @media (max-width: 349px) {
+        .hero {
+          padding-top: 100px;
+        }
+
+        .hero-copy {
+          margin-bottom: 20px;
+        }
+
+        .hero-actions .secondary {
+          display: none;
+        }
+      }
     </style>
   </head>
   <body>
@@ -1566,20 +1623,6 @@
                 Learn more
               </a>
             </div>
-            <div class="hero-metrics" aria-label="SubPar highlights">
-              <div class="metric">
-                <strong>Find open spots</strong>
-                <span>Discover tee times and local games that need players.</span>
-              </div>
-              <div class="metric">
-                <strong>Invite trusted players</strong>
-                <span>Play public or private rounds with people who fit.</span>
-              </div>
-              <div class="metric">
-                <strong>Coordinate the round</strong>
-                <span>Message, confirm, rate, and share the golf day.</span>
-              </div>
-            </div>
           </div>
 
           <figure class="hero-app-shot" aria-label="SubPar app home preview">
@@ -1588,6 +1631,21 @@
               alt="SubPar discovery screen showing nearby golf games"
             />
           </figure>
+
+          <div class="hero-metrics" aria-label="SubPar highlights">
+            <div class="metric">
+              <strong>Find open spots</strong>
+              <span>Discover tee times and local games that need players.</span>
+            </div>
+            <div class="metric">
+              <strong>Invite trusted players</strong>
+              <span>Play public or private rounds with people who fit.</span>
+            </div>
+            <div class="metric">
+              <strong>Coordinate the round</strong>
+              <span>Message, confirm, rate, and share the golf day.</span>
+            </div>
+          </div>
         </div>
       </section>
 
