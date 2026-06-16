@@ -8,7 +8,13 @@
       name="description"
       content="SubPar helps golfers find local rounds, invite trusted players, coordinate before tee time, and connect with coaches and caddies."
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://unpkg.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <style>
       :root {
@@ -44,8 +50,11 @@
       body {
         margin: 0;
         font-family:
-          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
           "Segoe UI", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        text-rendering: optimizeLegibility;
         color: var(--ink);
         background: var(--green-50);
         overflow-x: hidden;
@@ -211,7 +220,7 @@
       .hero-copy {
         max-width: 720px;
         margin-bottom: 34px;
-        color: rgba(255, 255, 255, 0.86);
+        color: rgba(255, 255, 255, 0.9);
         font-size: clamp(17px, 1.7vw, 21px);
         line-height: 1.45;
       }
@@ -236,8 +245,8 @@
       }
 
       .metric {
-        min-height: 104px;
-        padding: 22px;
+        min-height: 98px;
+        padding: 20px;
         background: rgba(5, 59, 16, 0.2);
       }
 
@@ -245,11 +254,12 @@
         display: block;
         margin-bottom: 7px;
         color: var(--white);
-        font-size: 26px;
+        font-size: 21px;
+        line-height: 1.18;
       }
 
       .metric span {
-        color: rgba(255, 255, 255, 0.74);
+        color: rgba(255, 255, 255, 0.8);
         font-size: 14px;
         line-height: 1.35;
       }
@@ -617,6 +627,7 @@
       .step p,
       .faq p,
       .use-card p {
+        margin-bottom: 0;
         color: var(--muted);
         line-height: 1.58;
       }
@@ -1001,13 +1012,13 @@
         margin-right: auto;
         margin-bottom: 0;
         margin-left: auto;
-        color: rgba(255, 255, 255, 0.74);
+        color: rgba(255, 255, 255, 0.82);
         font-size: 18px;
         line-height: 1.58;
       }
 
       .flow-showcase .mini-label {
-        color: rgba(255, 255, 255, 0.84);
+        color: rgba(255, 255, 255, 0.9);
       }
 
       .flow-previews {
@@ -1069,13 +1080,13 @@
       }
 
       .use-card {
-        min-height: 206px;
+        min-height: 188px;
         padding: 22px;
-        border: 1px solid rgba(220, 229, 220, 0.82);
+        border: 1px solid rgba(220, 229, 220, 0.72);
         border-radius: 8px;
-        background: rgba(255, 255, 255, 0.82);
-        backdrop-filter: blur(8px);
-        box-shadow: 0 14px 38px rgba(5, 59, 16, 0.08);
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(5px);
+        box-shadow: 0 8px 24px rgba(5, 59, 16, 0.05);
       }
 
       .use-card-head {
@@ -1147,6 +1158,7 @@
       #faq h2 {
         margin-right: auto;
         margin-left: auto;
+        font-size: clamp(26px, 2.5vw, 34px);
       }
 
       .faq-grid {
@@ -1156,11 +1168,11 @@
       }
 
       .faq {
-        padding: 19px 20px;
+        padding: 18px 20px;
         border: 1px solid var(--line);
         border-radius: 8px;
-        background: rgba(255, 255, 255, 0.94);
-        box-shadow: 0 12px 34px rgba(5, 59, 16, 0.05);
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 8px 24px rgba(5, 59, 16, 0.04);
       }
 
       .faq.featured {
@@ -1197,15 +1209,17 @@
       .cta-band p {
         max-width: 720px;
         margin-bottom: 0;
-        color: rgba(255, 255, 255, 0.76);
+        color: rgba(255, 255, 255, 0.82);
         font-size: 18px;
         line-height: 1.56;
       }
 
       .cta-actions {
         display: flex;
+        flex-direction: column;
+        align-items: flex-start;
         flex-wrap: wrap;
-        gap: 12px;
+        gap: 10px;
         justify-content: flex-start;
       }
 
@@ -1272,10 +1286,19 @@
           grid-template-columns: 1fr;
         }
 
+        .hero-grid {
+          gap: 28px;
+        }
+
         .hero-phone,
         .hero-app-shot {
           justify-self: start;
           transform: none;
+        }
+
+        .hero-app-shot {
+          width: min(320px, 100%);
+          height: min(560px, 58svh);
         }
       }
 
@@ -1302,6 +1325,7 @@
         }
 
         .cta-actions {
+          align-items: center;
           justify-content: center;
         }
 
@@ -1331,8 +1355,9 @@
         }
 
         h1 {
-          font-size: clamp(38px, 10vw, 44px);
-          line-height: 1.02;
+          margin-bottom: 18px;
+          font-size: clamp(34px, 9vw, 40px);
+          line-height: 1.06;
         }
 
         h2 {
@@ -1362,6 +1387,7 @@
         }
 
         .hero-copy {
+          margin-bottom: 24px;
           font-size: 17px;
         }
 
@@ -1376,6 +1402,11 @@
 
         .metric {
           min-height: auto;
+          padding: 18px;
+        }
+
+        .metric strong {
+          font-size: 20px;
         }
 
         section {
@@ -1492,16 +1523,16 @@
             </div>
             <div class="hero-metrics" aria-label="SubPar highlights">
               <div class="metric">
-                <strong>Games</strong>
-                <span>Create, verify, invite, and join golf rounds.</span>
+                <strong>Find open spots</strong>
+                <span>Discover tee times and local games that need players.</span>
               </div>
               <div class="metric">
-                <strong>Players</strong>
-                <span>Meet reliable people for public or private games.</span>
+                <strong>Invite trusted players</strong>
+                <span>Play public or private rounds with people who fit.</span>
               </div>
               <div class="metric">
-                <strong>Rounds</strong>
-                <span>Coordinate, track, finish, rate, and share the day.</span>
+                <strong>Coordinate the round</strong>
+                <span>Message, confirm, rate, and share the golf day.</span>
               </div>
             </div>
           </div>
