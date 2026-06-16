@@ -8,7 +8,7 @@ Open `index.html` directly in a browser.
 
 ## Shareable preview
 
-This repo includes a GitHub Pages workflow. After GitHub Pages is enabled for the repo, pushes to `main` publish the site here:
+The public GitHub Pages preview is available here:
 
 https://daryacode.github.io/SP-promo/
 
